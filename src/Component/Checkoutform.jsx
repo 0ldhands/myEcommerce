@@ -1,8 +1,15 @@
 import React, { useContext, useRef, useState } from "react";
 import { myContext } from "../App";
 import Tickanimation from "./Tickanimation"
+import { BsCashCoin } from "react-icons/bs";
+import { CiBank } from "react-icons/ci";
+import { FaRegCreditCard } from "react-icons/fa";
+
 
 const Checkoutform = () => {
+
+  const [payment,setPayment]=useState('')
+
   const checkval = useContext(myContext);
 
   const cnameRef = useRef();
@@ -21,7 +28,9 @@ const Checkoutform = () => {
         cname: cnameRef.current.value,
         cmobile: cmobileRef.current.value,
         cmail: cmailRef.current.value,
-        caddre: caddreRef.current.value,
+        cadd: caddreRef.current.value,
+        cpayment:payment,
+        cproduct:checkval.addcart
       },
     ]);
 
@@ -74,6 +83,10 @@ const Checkoutform = () => {
     cursor: "pointer",
   };
 
+  const radio={
+    marginRight:'40px'
+  }
+
   return (
     toggle ? <Tickanimation/> : <div style={containerStyle}>
       
@@ -96,6 +109,17 @@ const Checkoutform = () => {
         <div style={formGroupStyle}>
           <label style={labelStyle}>Address</label>
           <input type="text" ref={caddreRef} style={inputStyle} required />
+        </div>
+
+        
+
+        <div style={formGroupStyle}>
+          <label htmlFor="Cash" ><BsCashCoin/></label>
+         <input style={radio} type="radio" value="Cash" id="Cash" onChange={(e)=>setPayment(e.target.value)} checked={payment === 'Cash'}/>
+          <label htmlFor="Upi">Upi</label>
+         <input style={radio} type="radio" value="Upi" id="Upi" onChange={(e)=>setPayment(e.target.value)} checked={payment === 'Upi'}/>
+          <label htmlFor="card"><FaRegCreditCard/></label>
+         <input style={radio} type="radio" value="card" id="card" onChange={(e)=>setPayment(e.target.value)} checked={payment === 'card'}/>
         </div>
 
         <button type="submit" style={buttonStyle}>Buy now</button>

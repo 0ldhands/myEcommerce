@@ -5,8 +5,12 @@ import Footer from "../Component/Footer";
 import Tickanimation from '../Component/Tickanimation'
 import '../style.css'
 import Checkoutform from "../Component/Checkoutform";
+import { useNavigate } from "react-router-dom";
 
 const Viewcarts = () => {
+
+
+  const navi=useNavigate()
 
   const[toggle,setToggle]=useState(false)
 
@@ -32,12 +36,14 @@ const Viewcarts = () => {
           overflow:'scroll'
         }}
       >
+         <button onClick={()=>navi('/AdminDashboard')}>admin</button>
         {toggle ? <Checkoutform/>:<Viewcart/> }
 
         
 
         {!toggle && <button style={{position:"fixed",bottom:'100px',left:"300px"}} className="place-button" onClick={()=>setToggle((cur)=>!cur)}>Check out</button>}
       </div>
+     
       <Footer />
     </div>
   );

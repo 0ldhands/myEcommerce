@@ -8,16 +8,24 @@
 
 
 
-
-
-button[value="true"]{
-  margin-top: "10px";
-  padding: "8px 12px";
+#btn-1{
+ margin-top: 10px;
+  padding: 8px 12px;
   background-color: #007bff;
-  color: "white";
-  border: "none";
-  border-radius: "4px";
-  cursor: "pointer";
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#btn-1:hover{
+ margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #0c4d93;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .order-container {

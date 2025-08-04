@@ -21,7 +21,8 @@ const cardStyle = {
 };
 
 const imageStyle = {
-  width: "100%",
+  width: "100px",
+  height:"100px",
   borderRadius: "6px",
 };
 
@@ -77,7 +78,7 @@ const userProduct = () => {
             <h3>{cur.title}</h3>
             <h5>{cur.price}</h5>
             <h5>{cur.category}</h5>
-            <button value={cur.active} onClick={() => addingCart(cur.id)}>
+            <button id="btn-1" value={cur.active} onClick={() => addingCart(cur.id)}>
               {cur.active ? <p>Added</p> : <p>Add to cart</p>}
             </button>
           </div>
