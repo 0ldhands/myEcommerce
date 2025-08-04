@@ -10,7 +10,7 @@ const Setting = () => {
     <div>
         <Navbar/>
         <Settingdashboard/>
-        <Others/>
+       
         <Footer/>
     </div>
   )

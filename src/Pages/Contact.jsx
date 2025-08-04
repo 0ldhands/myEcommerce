@@ -9,7 +9,6 @@ const Contact = () => {
     <div>
         <Navbar/>
         <Contactdashboard/>
-        <Tickanimation/>
         <Footer/>
     </div>
   )

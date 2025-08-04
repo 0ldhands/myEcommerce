@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { myContext } from '../App';
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = () => {
   const [query, setQuery] = useState('');
+
+  const val=useContext(myContext)
 
   const searchBarStyle = {
     display: 'flex',
@@ -34,10 +37,21 @@ const SearchBar = ({ onSearch }) => {
   };
 
   const handleSearch = () => {
-    if (onSearch) {
-      onSearch(query);
-    }
+ 
+  val.setProducts(()=>{
+    return(
+      val.products.filter((cur)=>cur.title.toLowerCase().includes(query.toLowerCase()))
+    )
+  })
   };
+
+  useEffect(()=>{
+  if(query ==''){
+     fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => val.setProducts(data));
+  }
+  },[query])
 
   return (
     <div style={searchBarStyle}>

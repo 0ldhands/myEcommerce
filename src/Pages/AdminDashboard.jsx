@@ -4,6 +4,18 @@ import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
 
+  const buttonStyle = {
+  marginTop: "10px",
+  padding: "8px 12px",
+  backgroundColor: "#007bff",
+  color: "white",
+  border: "none",
+  borderRadius: "4px",
+  cursor: "pointer",
+  marginLeft:'900px'
+};
+
+
 
   const navi=useNavigate()
 
@@ -73,7 +85,7 @@ const AdminDashboard = () => {
       {/* Main Area */}
       <div style={styles.contentArea}>
        
-        <div style={styles.header}>{activePage}   <button style={{marginLeft:'900px'}} onClick={()=>navi('/')}>Logout</button></div>
+        <div style={styles.header}>{activePage}   <button style={buttonStyle} onClick={()=>navi('/')}>Logout</button></div>
        
         <div style={styles.content}>
           <p>Welcome to the {activePage} page!</p>

@@ -39,18 +39,18 @@ const buttonStyle = {
 const userProduct = () => {
   const cartval = useContext(myContext);
 
-  const [products, setProducts] = useState([]);
+ 
 
   const [btn, setBtn] = useState(false);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => cartval.setProducts(data));
   }, []);
 
   function addingCart(val) {
-    products.forEach((cur) => {
+   cartval.products.forEach((cur) => {
       if (cur.id === val) {
         cartval.setAddcart((c) => [
           ...c,
@@ -71,7 +71,7 @@ const userProduct = () => {
 
   return (
     <div style={cardContainerStyle}>
-      {products.map((cur, i) => {
+      {cartval.products.map((cur, i) => {
         return (
           <div style={cardStyle} key={i}>
             <img src={cur.image} alt={cur.image} style={imageStyle} />

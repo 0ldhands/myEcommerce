@@ -29,19 +29,22 @@ const Viewcarts = () => {
       <div
         style={{
           margin: "20px",
-          border: "1px solid black",
+          
+          backgroundColor:"#bdbdbd83",
           marginBottom: "60px",
           width: "700px",
           height: "400px",
-          overflow:'scroll'
+          overflow:'scroll',
+         marginLeft:'300px',
+         borderRadius:'10px'
         }}
       >
-         <button onClick={()=>navi('/AdminDashboard')}>admin</button>
+       
         {toggle ? <Checkoutform/>:<Viewcart/> }
 
         
 
-        {!toggle && <button style={{position:"fixed",bottom:'100px',left:"300px"}} className="place-button" onClick={()=>setToggle((cur)=>!cur)}>Check out</button>}
+        {!toggle && <button style={{position:"fixed",bottom:'100px',left:"550px"}} className="place-button" onClick={()=>setToggle((cur)=>!cur)}>Check out</button>}
       </div>
      
       <Footer />
